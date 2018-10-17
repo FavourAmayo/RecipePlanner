@@ -28,15 +28,15 @@ class ToDoItem extends Component {
     this.setState({ isEdit: false });
     let val = this.refs.newText.value;
     this.props.updateItemText(
-      val,
+      val, 
       this.props.id
     ); /* Maybe this second parameter is not correct "this.props.todo.id" */
   };
 
   toggleColor = () => {
       this.setState({classGreen: !this.state.classGreen});
-  };
-
+  };   
+ 
   renderNormal = () => {
     return (
       <div className="todoWrapper" style={this.state.classGreen ?divStyle : null}>

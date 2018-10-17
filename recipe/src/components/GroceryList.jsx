@@ -33,15 +33,28 @@ class GroceryList extends Component {
 
   removeTodo(id) {
     this.setState({
-      todos: this.state.todos.filter((todo, index) => todo.id !== id)
+      todos: this.state.todos.filter((todo, index) => todo.id !== id), /* nextId: --this.state.nextId */ 
     });
-  }
+    //this.ResetIds();
+  };
+
+  /* ResetIds=()=>{
+    let todos = this.state.todos.slice();
+    for (let i = 0; i < todos.length; i++) {
+      todos[i].id = i;
+    }
+    console.log(todos);
+    this.setState({todos: todos, nextId: todos.length-1.id + 1});
+  }; */
 
   updateText(newText, index) {
     let arr = this.state.todos;
-    arr[index].text = newText;
+    console.log(arr);
+    let item = this.state.todos.findIndex(todo => todo.id === index);
+    console.log(item);
+    arr[item].text = newText;
     this.setState({ todos: arr });
-  }
+  };
 
   componentDidMount = () => {
     const json2 = localStorage.getItem("list");
@@ -143,7 +156,7 @@ class GroceryList extends Component {
             Recipe Planner
           </h1>
           <Navbar />
-        </header>
+        </header> 
 
         {/* <div className="app">
           <div className="header" />
@@ -191,3 +204,9 @@ class GroceryList extends Component {
 }
 
 export default GroceryList;
+
+
+/* Update one item in an array ->
+
+https://stackoverflow.com/questions/41018605/update-single-value-in-item-array-react-redux
+*/
