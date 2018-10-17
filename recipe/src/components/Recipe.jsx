@@ -54,7 +54,7 @@ class Recipe extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title" style={{ float: "left" }}>
-            Recipe Search
+            Recipe Planner
           </h1>
           <Navbar />
         </header>
